@@ -1,0 +1,129 @@
+config:
+  muehlbachler-io_global-dns:dns:
+    entry:
+      adsp:
+        domains:
+          - names:
+              - _adsp._domainkey.muehlbachler.io
+            zone: muehlbachler
+        type: TXT
+        values:
+          - dkim=all
+      blog:
+        domains:
+          - names:
+              - blog.muehlbachler.io
+            zone: muehlbachler
+        type: A
+        values:
+          - 162.159.153.4
+          - 162.159.152.4
+      d1n-relay-dkim:
+        domains:
+          - names:
+              - dkim._domainkey.d1n.relay.muehlbachler.io
+            zone: muehlbachler
+        type: CNAME
+        values:
+          - dkim._domainkey.simplelogin.co.
+      d1n-relay-dkim02:
+        domains:
+          - names:
+              - dkim02._domainkey.d1n.relay.muehlbachler.io
+            zone: muehlbachler
+        type: CNAME
+        values:
+          - dkim02._domainkey.simplelogin.co.
+      d1n-relay-dkim03:
+        domains:
+          - names:
+              - dkim03._domainkey.d1n.relay.muehlbachler.io
+            zone: muehlbachler
+        type: CNAME
+        values:
+          - dkim03._domainkey.simplelogin.co.
+      d1n-relay-dmarc:
+        domains:
+          - names:
+              - _dmarc.d1n.relay.muehlbachler.io
+            zone: muehlbachler
+        type: TXT
+        values:
+          - v=DMARC1; p=quarantine; pct=100; adkim=s; aspf=s
+      d1n-relay-mx:
+        domains:
+          - names:
+              - d1n.relay.muehlbachler.io
+            zone: muehlbachler
+        type: MX
+        values:
+          - 10 mx1.simplelogin.co.
+          - 20 mx2.simplelogin.co.
+      d1n-relay-txt:
+        domains:
+          - names:
+              - d1n.relay.muehlbachler.io
+            zone: muehlbachler
+        type: TXT
+        values:
+          - sl-verification=xabtdnkldfwazhfwaepfkhrogvgavb
+          - v=spf1 include:simplelogin.co ~all
+      dkim:
+        domains:
+          - names:
+              - soverin._domainkey.muehlbachler.io
+            zone: muehlbachler
+        type: TXT
+        values:
+          - v=DKIM1; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA1ylAgJBKeG4b3gJCBdYywk3sseI42W5oV2Q8lqleFYd2BI1p4urFmSzkCkXLCX1M1dbzzipmH3ihNhjXOzeIia+RNrOK78sETTpL6EZKcLaM752FsSjN/ar5PAcm7Q7MDmtuJ4J5aCdwHyuBi2WLigHzf+bCmRCN6r83/xIn/OkLtsbeNFazCZlDjNDqRUEbCVec6iVy0sXKQ8v4kfVGgIBEribdVw4jZ4Kd3ImYKwcsfDuAobuF4I65S9t4AjIJd4OKzE5IooZFaHtuxvCifWy3Nf51LZGtABjWaOXKzsDzTbY/1F7ueK6pD4dYWiOFYGfWCJxKMCjLe+vy7W/kcwIDAQAB
+      dmarc:
+        domains:
+          - names:
+              - _dmarc.muehlbachler.io
+            zone: muehlbachler
+        type: TXT
+        values:
+          - v=DMARC1; p=reject; rua=mailto:postmaster@muehlbachler.io; ruf=mailto:postmaster@muehlbachler.io; fo=0; adkim=r; aspf=r; rf=afrf
+      home:
+        domains:
+          - names:
+              - home.muehlbachler.io
+            zone: muehlbachler
+        ttl: 3600
+        type: NS
+        values:
+          - ns-cloud-b1.googledomains.com.
+          - ns-cloud-b2.googledomains.com.
+          - ns-cloud-b3.googledomains.com.
+          - ns-cloud-b4.googledomains.com.
+      internal:
+        domains:
+          - names:
+              - internal.muehlbachler.io
+            zone: muehlbachler
+        ttl: 3600
+        type: NS
+        values:
+          - ns-cloud-a1.googledomains.com.
+          - ns-cloud-a2.googledomains.com.
+          - ns-cloud-a3.googledomains.com.
+          - ns-cloud-a4.googledomains.com.
+      mx:
+        domains:
+          - names:
+              - muehlbachler.io
+            zone: muehlbachler
+        type: MX
+        values:
+          - 10 mx.soverin.net.
+          - 20 mx02.soverin.net.
+          - 30 mx03.soverin.net.
+      spf:
+        domains:
+          - names:
+              - muehlbachler.io
+            zone: muehlbachler
+        type: TXT
+        values:
+          - v=spf1 +a include:soverin.net ~all
+          - Soverin=yzUy1tHzz74tD69h
