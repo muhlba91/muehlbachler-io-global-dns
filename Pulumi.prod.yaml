@@ -118,7 +118,7 @@ config:
           - 10 mx.soverin.net.
           - 20 mx02.soverin.net.
           - 30 mx03.soverin.net.
-      spf:
+      root-txt:
         domains:
           - names:
               - muehlbachler.io
@@ -127,3 +127,4 @@ config:
         values:
           - v=spf1 +a include:soverin.net ~all
           - Soverin=yzUy1tHzz74tD69h
+          - OSSRH-92228
