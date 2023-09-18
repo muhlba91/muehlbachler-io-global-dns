@@ -1,3 +1,5 @@
+import * as gcp from '@pulumi/gcp';
+
 import { dnsConfig } from '../configuration';
 import { createRecord } from '../gcp/dns/record';
 
@@ -7,13 +9,14 @@ import { createRecord } from '../gcp/dns/record';
 export const createDNSEntries = async (): Promise<void> => {
   Object.entries(dnsConfig.entry).map(([name, entry]) => {
     const domainEntries = entry.domains.flatMap((data) =>
-      data.names.map((domain) => [domain, data.zone]),
+      data.names.map((domain) => [domain, data.zone, data.project ?? '']),
     );
-    domainEntries.map(([domain, zoneId]) =>
+    domainEntries.map(([domain, zoneId, project]) =>
       createRecord(
         name + '-' + domain.replace(/\\W+/gi, '-'),
         domain,
         zoneId,
+        (project.length == 0 ? gcp.config.project : project) ?? '',
         entry.type,
         entry.values.map((value) => splitByLength(value, entry.type)),
         {

@@ -22,7 +22,8 @@ config:
         domains:
           - names:
               - dkim._domainkey.d1n.relay.muehlbachler.io
-            zone: muehlbachler
+            project: muehlbachler-mail-397612
+            zone: relay-muehlbachler
         type: CNAME
         values:
           - dkim._domainkey.simplelogin.co.
@@ -30,7 +31,8 @@ config:
         domains:
           - names:
               - dkim02._domainkey.d1n.relay.muehlbachler.io
-            zone: muehlbachler
+            project: muehlbachler-mail-397612
+            zone: relay-muehlbachler
         type: CNAME
         values:
           - dkim02._domainkey.simplelogin.co.
@@ -38,7 +40,8 @@ config:
         domains:
           - names:
               - dkim03._domainkey.d1n.relay.muehlbachler.io
-            zone: muehlbachler
+            project: muehlbachler-mail-397612
+            zone: relay-muehlbachler
         type: CNAME
         values:
           - dkim03._domainkey.simplelogin.co.
@@ -46,7 +49,8 @@ config:
         domains:
           - names:
               - _dmarc.d1n.relay.muehlbachler.io
-            zone: muehlbachler
+            project: muehlbachler-mail-397612
+            zone: relay-muehlbachler
         type: TXT
         values:
           - v=DMARC1; p=quarantine; pct=100; adkim=s; aspf=s
@@ -54,7 +58,8 @@ config:
         domains:
           - names:
               - d1n.relay.muehlbachler.io
-            zone: muehlbachler
+            project: muehlbachler-mail-397612
+            zone: relay-muehlbachler
         type: MX
         values:
           - 10 mx1.simplelogin.co.
@@ -63,7 +68,8 @@ config:
         domains:
           - names:
               - d1n.relay.muehlbachler.io
-            zone: muehlbachler
+            project: muehlbachler-mail-397612
+            zone: relay-muehlbachler
         type: TXT
         values:
           - sl-verification=xabtdnkldfwazhfwaepfkhrogvgavb
@@ -118,6 +124,18 @@ config:
           - 10 mx.soverin.net.
           - 20 mx02.soverin.net.
           - 30 mx03.soverin.net.
+      relay:
+        domains:
+          - names:
+              - relay.muehlbachler.io
+            zone: muehlbachler
+        ttl: 3600
+        type: NS
+        values:
+          - ns-cloud-a1.googledomains.com.
+          - ns-cloud-a2.googledomains.com.
+          - ns-cloud-a3.googledomains.com.
+          - ns-cloud-a4.googledomains.com.
       root-txt:
         domains:
           - names:

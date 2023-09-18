@@ -32,4 +32,5 @@ export type RedirectData = {
 export type DomainData = {
   readonly names: readonly string[];
   readonly zone: string;
+  readonly project?: string;
 };
