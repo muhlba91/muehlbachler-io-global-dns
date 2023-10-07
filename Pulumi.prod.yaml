@@ -90,6 +90,18 @@ config:
         type: TXT
         values:
           - v=DMARC1; p=reject; rua=mailto:postmaster@muehlbachler.io; ruf=mailto:postmaster@muehlbachler.io; fo=0; adkim=r; aspf=r; rf=afrf
+      email:
+        domains:
+          - names:
+              - email.muehlbachler.io
+            zone: muehlbachler
+        ttl: 3600
+        type: NS
+        values:
+          - ns-cloud-b1.googledomains.com.
+          - ns-cloud-b2.googledomains.com.
+          - ns-cloud-b3.googledomains.com.
+          - ns-cloud-b4.googledomains.com.
       home:
         domains:
           - names:
