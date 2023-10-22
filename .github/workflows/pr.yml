@@ -10,7 +10,7 @@ jobs:
     name: Conform
 
     steps:
-      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
@@ -27,7 +27,7 @@ jobs:
         node-version: ["16"]
 
     steps:
-      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
@@ -48,7 +48,7 @@ jobs:
         node-version: ["16"]
 
     steps:
-      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
@@ -69,7 +69,7 @@ jobs:
         node-version: ["16"]
 
     steps:
-      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
@@ -99,13 +99,18 @@ jobs:
         node-version: ["16"]
 
     steps:
-      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
       - uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
+
+      - uses: 'google-github-actions/auth@v1'
+        with:
+          workload_identity_provider: ${{ secrets.GOOGLE_WORKLOAD_IDENTITY_PROVIDER }}
+          service_account: ${{ secrets.GOOGLE_WORKLOAD_IDENTITY_SERVICE_ACCOUNT }}
 
       - run: |
           npm install -g yarn
@@ -119,8 +124,7 @@ jobs:
           command: preview
           stack-name: prod
           comment-on-pr: true
+          refresh: ${{ github.event.pull_request.head.repo.full_name == github.repository }}
         env:
           CLOUDSDK_COMPUTE_REGION: "${{ secrets.CLOUDSDK_COMPUTE_REGION }}"
-          CLOUDSDK_CORE_PROJECT: "${{ secrets.CLOUDSDK_CORE_PROJECT }}"
           PULUMI_ACCESS_TOKEN: "${{ secrets.PULUMI_ACCESS_TOKEN }}"
-          GOOGLE_CREDENTIALS: "${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_JSON }}"
