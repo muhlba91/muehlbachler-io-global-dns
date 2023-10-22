@@ -5,7 +5,7 @@ config:
         domains:
           - names:
               - _adsp._domainkey.muehlbachler.io
-            zone: muehlbachler
+            zone: muehlbachler-io
         type: TXT
         values:
           - dkim=all
@@ -13,7 +13,7 @@ config:
         domains:
           - names:
               - blog.muehlbachler.io
-            zone: muehlbachler
+            zone: muehlbachler-io
         type: A
         values:
           - 162.159.153.4
@@ -22,8 +22,7 @@ config:
         domains:
           - names:
               - dkim._domainkey.d1n.relay.muehlbachler.io
-            project: muehlbachler-mail-397612
-            zone: relay-muehlbachler
+            zone: relay-muehlbachler-io
         type: CNAME
         values:
           - dkim._domainkey.simplelogin.co.
@@ -31,8 +30,7 @@ config:
         domains:
           - names:
               - dkim02._domainkey.d1n.relay.muehlbachler.io
-            project: muehlbachler-mail-397612
-            zone: relay-muehlbachler
+            zone: relay-muehlbachler-io
         type: CNAME
         values:
           - dkim02._domainkey.simplelogin.co.
@@ -40,8 +38,7 @@ config:
         domains:
           - names:
               - dkim03._domainkey.d1n.relay.muehlbachler.io
-            project: muehlbachler-mail-397612
-            zone: relay-muehlbachler
+            zone: relay-muehlbachler-io
         type: CNAME
         values:
           - dkim03._domainkey.simplelogin.co.
@@ -49,8 +46,7 @@ config:
         domains:
           - names:
               - _dmarc.d1n.relay.muehlbachler.io
-            project: muehlbachler-mail-397612
-            zone: relay-muehlbachler
+            zone: relay-muehlbachler-io
         type: TXT
         values:
           - v=DMARC1; p=quarantine; pct=100; adkim=s; aspf=s
@@ -58,8 +54,7 @@ config:
         domains:
           - names:
               - d1n.relay.muehlbachler.io
-            project: muehlbachler-mail-397612
-            zone: relay-muehlbachler
+            zone: relay-muehlbachler-io
         type: MX
         values:
           - 10 mx1.simplelogin.co.
@@ -68,8 +63,7 @@ config:
         domains:
           - names:
               - d1n.relay.muehlbachler.io
-            project: muehlbachler-mail-397612
-            zone: relay-muehlbachler
+            zone: relay-muehlbachler-io
         type: TXT
         values:
           - sl-verification=xabtdnkldfwazhfwaepfkhrogvgavb
@@ -78,7 +72,7 @@ config:
         domains:
           - names:
               - soverin._domainkey.muehlbachler.io
-            zone: muehlbachler
+            zone: muehlbachler-io
         type: TXT
         values:
           - v=DKIM1; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA1ylAgJBKeG4b3gJCBdYywk3sseI42W5oV2Q8lqleFYd2BI1p4urFmSzkCkXLCX1M1dbzzipmH3ihNhjXOzeIia+RNrOK78sETTpL6EZKcLaM752FsSjN/ar5PAcm7Q7MDmtuJ4J5aCdwHyuBi2WLigHzf+bCmRCN6r83/xIn/OkLtsbeNFazCZlDjNDqRUEbCVec6iVy0sXKQ8v4kfVGgIBEribdVw4jZ4Kd3ImYKwcsfDuAobuF4I65S9t4AjIJd4OKzE5IooZFaHtuxvCifWy3Nf51LZGtABjWaOXKzsDzTbY/1F7ueK6pD4dYWiOFYGfWCJxKMCjLe+vy7W/kcwIDAQAB
@@ -86,7 +80,7 @@ config:
         domains:
           - names:
               - _dmarc.muehlbachler.io
-            zone: muehlbachler
+            zone: muehlbachler-io
         type: TXT
         values:
           - v=DMARC1; p=reject; rua=mailto:postmaster@muehlbachler.io; ruf=mailto:postmaster@muehlbachler.io; fo=0; adkim=r; aspf=r; rf=afrf
@@ -94,19 +88,19 @@ config:
         domains:
           - names:
               - email.muehlbachler.io
-            zone: muehlbachler
+            zone: muehlbachler-io
         ttl: 3600
         type: NS
         values:
-          - ns-cloud-b1.googledomains.com.
-          - ns-cloud-b2.googledomains.com.
-          - ns-cloud-b3.googledomains.com.
-          - ns-cloud-b4.googledomains.com.
+          - ns-cloud-a1.googledomains.com.
+          - ns-cloud-a2.googledomains.com.
+          - ns-cloud-a3.googledomains.com.
+          - ns-cloud-a4.googledomains.com.
       home:
         domains:
           - names:
               - home.muehlbachler.io
-            zone: muehlbachler
+            zone: muehlbachler-io
         ttl: 3600
         type: NS
         values:
@@ -118,7 +112,7 @@ config:
         domains:
           - names:
               - internal.muehlbachler.io
-            zone: muehlbachler
+            zone: muehlbachler-io
         ttl: 3600
         type: NS
         values:
@@ -130,7 +124,7 @@ config:
         domains:
           - names:
               - muehlbachler.io
-            zone: muehlbachler
+            zone: muehlbachler-io
         type: MX
         values:
           - 10 mx.soverin.net.
@@ -140,19 +134,18 @@ config:
         domains:
           - names:
               - relay.muehlbachler.io
-            zone: muehlbachler
+            zone: muehlbachler-io
         ttl: 3600
         type: NS
         values:
-          - ns-cloud-a1.googledomains.com.
-          - ns-cloud-a2.googledomains.com.
-          - ns-cloud-a3.googledomains.com.
-          - ns-cloud-a4.googledomains.com.
+          - ns-cloud-b1.googledomains.com.
+          - ns-cloud-b2.googledomains.com.
+          - ns-cloud-b3.googledomains.com.
+          - ns-cloud-b4.googledomains.com.
       relay-email-adsp:
         domains:
           - names:
               - _adsp._domainkey.relay.email.muehlbachler.io
-            project: muehlbachler-mail-397612
             zone: email-muehlbachler-io
         type: TXT
         values:
@@ -161,7 +154,6 @@ config:
         domains:
           - names:
               - x._domainkey.relay.email.muehlbachler.io
-            project: muehlbachler-mail-397612
             zone: email-muehlbachler-io
         type: TXT
         values:
@@ -170,7 +162,6 @@ config:
         domains:
           - names:
               - _dmarc.relay.email.muehlbachler.io
-            project: muehlbachler-mail-397612
             zone: email-muehlbachler-io
         type: TXT
         values:
@@ -179,7 +170,6 @@ config:
         domains:
           - names:
               - mail.relay.email.muehlbachler.io
-            project: muehlbachler-mail-397612
             zone: email-muehlbachler-io
         type: CNAME
         values:
@@ -188,7 +178,6 @@ config:
         domains:
           - names:
               - relay.email.muehlbachler.io
-            project: muehlbachler-mail-397612
             zone: email-muehlbachler-io
         type: MX
         values:
@@ -198,7 +187,6 @@ config:
         domains:
           - names:
               - relay.email.muehlbachler.io
-            project: muehlbachler-mail-397612
             zone: email-muehlbachler-io
         type: TXT
         values:
@@ -207,7 +195,7 @@ config:
         domains:
           - names:
               - muehlbachler.io
-            zone: muehlbachler
+            zone: muehlbachler-io
         type: TXT
         values:
           - v=spf1 +a include:soverin.net ~all
