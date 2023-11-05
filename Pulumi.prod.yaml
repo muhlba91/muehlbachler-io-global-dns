@@ -96,6 +96,14 @@ config:
           - ns-cloud-a2.googledomains.com.
           - ns-cloud-a3.googledomains.com.
           - ns-cloud-a4.googledomains.com.
+      email-mail:
+        domains:
+          - names:
+              - mail.email.muehlbachler.io
+            zone: email-muehlbachler-io
+        type: CNAME
+        values:
+          - lisa.mxrouting.net.
       mx:
         domains:
           - names:
@@ -118,55 +126,6 @@ config:
           - ns-cloud-b2.googledomains.com.
           - ns-cloud-b3.googledomains.com.
           - ns-cloud-b4.googledomains.com.
-      relay-email-adsp:
-        domains:
-          - names:
-              - _adsp._domainkey.relay.email.muehlbachler.io
-            zone: email-muehlbachler-io
-        type: TXT
-        values:
-          - dkim=all
-      relay-email-dkim:
-        domains:
-          - names:
-              - x._domainkey.relay.email.muehlbachler.io
-            zone: email-muehlbachler-io
-        type: TXT
-        values:
-          - v=DKIM1; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA03CFa2KveHcCY6jJvb/XXtXtlwFg7ly6AmVJZ1Ur2ApVAqOZ80BG7VnwlscUTVhORQfRqXxVnTU8tnDG7/bAHc5KbjYatvntRZN/3IfaOAHTbFmo492F8Jq9dxoeq1yRXF0NviaN0YEo/h1Qwy0+AC4xvp1KDQJcA2zh2PxG7w/gcj01Hqb9Yv8Kx0TtfKTtwA1ffxxu35sowNBwgEkthob7nWdFhWDh93bNthjsI0WW2igOFvyFE1WUlTRsNUgvJaMhc8IWyyderWLTgrqs4gKof19S8fp3TyvGooLu/CGmS11zAIiUN2OUnis4DMuGZ4+ppmN8dgdZX3UZpUepKQIDAQAB
-      relay-email-dmarc:
-        domains:
-          - names:
-              - _dmarc.relay.email.muehlbachler.io
-            zone: email-muehlbachler-io
-        type: TXT
-        values:
-          - v=DMARC1; p=reject; rua=mailto:postmaster@relay.email.muehlbachler.io; ruf=mailto:postmaster@relay.email.muehlbachler.io; fo=0; adkim=r; aspf=r; rf=afrf
-      relay-email-mail:
-        domains:
-          - names:
-              - mail.relay.email.muehlbachler.io
-            zone: email-muehlbachler-io
-        type: CNAME
-        values:
-          - lisa.mxrouting.net.
-      relay-email-mx:
-        domains:
-          - names:
-              - relay.email.muehlbachler.io
-            zone: email-muehlbachler-io
-        type: MX
-        values:
-          - 10 lisa.mxrouting.net.
-          - 20 lisa-relay.mxrouting.net.
-      relay-email-txt:
-        domains:
-          - names:
-              - relay.email.muehlbachler.io
-            zone: email-muehlbachler-io
-        type: TXT
-        values:
-          - v=spf1 include:mxroute.com ~all
       root-txt:
         domains:
           - names:
