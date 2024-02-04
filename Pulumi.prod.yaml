@@ -136,3 +136,4 @@ config:
           - v=spf1 +a include:soverin.net ~all
           - Soverin=yzUy1tHzz74tD69h
           - OSSRH-92228
+          - google-site-verification=XOfzgQK-Q9KQFknlfgzkjx0B0sfdMUbnE4nxIuvdt44
